@@ -1,0 +1,13 @@
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.AssemblyInfo.cs
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.deps.json
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.dll
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.pdb
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.dll
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.pdb
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.csproj.CopyComplete
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.dll
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Application\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Application.pdb

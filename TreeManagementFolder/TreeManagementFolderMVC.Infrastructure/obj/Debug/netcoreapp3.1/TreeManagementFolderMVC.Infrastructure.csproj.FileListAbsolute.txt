@@ -1,0 +1,16 @@
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.AssemblyInfo.cs
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.deps.json
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.runtimeconfig.json
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.runtimeconfig.dev.json
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.dll
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.pdb
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.dll
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.pdb
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.csproj.CopyComplete
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.dll
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.pdb
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Infrastructure\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Infrastructure.genruntimeconfig.cache

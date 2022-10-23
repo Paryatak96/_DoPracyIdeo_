@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "eItx97VIiqa9kCI7jbRFghCGB/YGs9j69sgWsXpob8tGQci6kXm5HEfyhtoS7Uu8ry64c2Ka/+X7hlp+ZeCFnA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Sebastian\\Source\\Repos\\TreeManagementFolder\\TreeManagementFolderMVC.Application\\TreeManagementFolderMVC.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sebastian\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

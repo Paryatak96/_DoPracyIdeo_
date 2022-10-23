@@ -1,0 +1,9 @@
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.AssemblyInfo.cs
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.deps.json
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.dll
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.pdb
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.dll
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.pdb

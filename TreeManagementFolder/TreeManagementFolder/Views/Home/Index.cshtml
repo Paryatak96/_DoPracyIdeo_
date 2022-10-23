@@ -1,0 +1,154 @@
+﻿@model TreeManagementFolderMVC.Application.ViewModels.Node.TreeVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="addNodeForm" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeWindow('addNodeForm')">&times;</span>
+            <h2>Modal Header</h2>
+        </div>
+        <div class="modal-body">
+
+            @using (Html.BeginForm("AddNode", "Home", FormMethod.Post))
+            {
+                @Html.TextBoxFor(m => m.Name);
+                @Html.HiddenFor(m => m.SelectedId);
+                <input type="submit" value="Add" class="btn btn-primary" />
+            }
+
+        </div>
+        <div class="modal-footer">
+            <h3>Modal Footer</h3>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="addLeafForm" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeWindow('addLeafForm')">&times;</span>
+            <h2>Modal Header</h2>
+        </div>
+        <div class="modal-body">
+
+            @using (Html.BeginForm("AddLeaf", "Home", FormMethod.Post))
+            {
+                @Html.TextBoxFor(m => m.Name);
+                @Html.HiddenFor(m => m.SelectedParentFeafId);
+                <input type="submit" value="Add" class="btn btn-primary" />
+            }
+
+        </div>
+        <div class="modal-footer">
+            <h3>Modal Footer</h3>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+    @{
+        ShowTreeData(Model.Root);
+    }
+
+    @functions
+    {
+        public void ShowTreeData(TreeManagementFolderMVC.Application.ViewModels.Node.NodeVM node)
+        {
+            var name = node.Name;
+
+            string id = node.Id.ToString();
+            @Html.Label("Text: ", name);
+            <button onclick="addNode(@id)">AddNode</button>
+            @Html.ActionLink("Delete", "DeleteNode", new { id = node.Id }, new { @class = "btn btn-success" })
+            <button onclick="addLeaf(@id)">AddLeaf</button>
+            <br />
+            <ul>
+                @foreach (var nodeItem in node.Nodes)
+                {
+                    <li>
+                        @{
+                            ShowTreeData(nodeItem);
+                        }
+                    </li>
+                }
+            </ul>
+            <ul>
+                @foreach (var leafeItem in node.Leafes)
+                {
+                    string idLeafe = leafeItem.Id.ToString();
+                    <li>
+                        @leafeItem.Name
+                        @Html.ActionLink("Delete", "DeleteLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
+                    </li>
+                }
+            </ul>
+        }
+    }
+
+
+
+
+    <script>
+
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function closeWindow(formId) {
+            var modalForm = document.getElementById(formId);
+            modalForm.style.display = "none";
+
+        }
+
+        function addNode(id) {
+            let hiddenId = document.getElementById("SelectedId");
+            hiddenId.value = id;
+
+            var modalForm = document.getElementById("addNodeForm");
+            modalForm.style.display = "block";
+        }
+
+
+        function addLeaf(id) {
+            let hiddenId = document.getElementById("SelectedParentFeafId");
+            hiddenId.value = id;
+
+            var modalForm = document.getElementById("addLeafForm");
+            modalForm.style.display = "block";
+
+        }
+
+
+      
+
+
+
+    </script>
+
+
+
+
+</div>

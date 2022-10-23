@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeManagementFolder", "TreeManagementFolder\TreeManagementFolder.csproj", "{52F38D6D-7E04-46BA-9FFD-09E380348433}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{BCA4D72F-BD1B-413D-95FF-F0D7A5F9BB5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{548FA2F3-AE26-4C73-8FCE-8D7527F65DA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{770BB0EC-7518-49D8-AC73-1A1BFDC44D25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{FA0ABCE1-26E5-43EA-9B52-B8D2C981BDF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeManagementFolderMVC.Application", "TreeManagementFolderMVC.Application\TreeManagementFolderMVC.Application.csproj", "{380ECED6-A5F4-49BC-823F-E4BC310A337D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeManagementFolderMVC.Domain", "TreeManagementFolderMVC.Domain\TreeManagementFolderMVC.Domain.csproj", "{82EF2DE2-7FE9-451B-9928-B8ECD034F5D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeManagementFolderMVC.Infrastructure", "TreeManagementFolderMVC.Infrastructure\TreeManagementFolderMVC.Infrastructure.csproj", "{53165A29-D65C-443D-BCA5-1D05B721E45B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52F38D6D-7E04-46BA-9FFD-09E380348433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F38D6D-7E04-46BA-9FFD-09E380348433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F38D6D-7E04-46BA-9FFD-09E380348433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F38D6D-7E04-46BA-9FFD-09E380348433}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380ECED6-A5F4-49BC-823F-E4BC310A337D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380ECED6-A5F4-49BC-823F-E4BC310A337D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380ECED6-A5F4-49BC-823F-E4BC310A337D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380ECED6-A5F4-49BC-823F-E4BC310A337D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82EF2DE2-7FE9-451B-9928-B8ECD034F5D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82EF2DE2-7FE9-451B-9928-B8ECD034F5D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82EF2DE2-7FE9-451B-9928-B8ECD034F5D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82EF2DE2-7FE9-451B-9928-B8ECD034F5D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53165A29-D65C-443D-BCA5-1D05B721E45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53165A29-D65C-443D-BCA5-1D05B721E45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53165A29-D65C-443D-BCA5-1D05B721E45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53165A29-D65C-443D-BCA5-1D05B721E45B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{52F38D6D-7E04-46BA-9FFD-09E380348433} = {FA0ABCE1-26E5-43EA-9B52-B8D2C981BDF7}
+		{380ECED6-A5F4-49BC-823F-E4BC310A337D} = {BCA4D72F-BD1B-413D-95FF-F0D7A5F9BB5B}
+		{82EF2DE2-7FE9-451B-9928-B8ECD034F5D3} = {548FA2F3-AE26-4C73-8FCE-8D7527F65DA3}
+		{53165A29-D65C-443D-BCA5-1D05B721E45B} = {770BB0EC-7518-49D8-AC73-1A1BFDC44D25}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {487F7A4E-4DC3-4D60-92CD-D10E9F0231EB}
+	EndGlobalSection
+EndGlobal
