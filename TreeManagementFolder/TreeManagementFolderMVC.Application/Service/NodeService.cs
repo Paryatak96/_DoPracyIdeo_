@@ -48,7 +48,7 @@ namespace TreeManagementFolderMVC.Application.Service
             nodeVM.Parent = parent;
             nodeVM.Id = node.Id;
             nodeVM.Name = node.Name;
-
+            nodeVM.Expanded = true;
             foreach (Leaf leaf in _nodeRepo.GetAllLeafsForParentId(node.Id))
             {
                 nodeVM.Leafes.Add(ChangeToVM(leaf, nodeVM));

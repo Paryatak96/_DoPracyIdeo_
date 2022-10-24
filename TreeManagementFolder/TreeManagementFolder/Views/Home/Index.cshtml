@@ -7,8 +7,7 @@
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span class="close" onclick="closeWindow('addNodeForm')">&times;</span>
-            <h2>Modal Header</h2>
+            <span class="close" onclick="closeWindow('addNodeForm')">&times;</span>   
         </div>
         <div class="modal-body">
 
@@ -21,7 +20,7 @@
 
         </div>
         <div class="modal-footer">
-            <h3>Modal Footer</h3>
+            Hello! :)
         </div>
     </div>
 
@@ -33,7 +32,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <span class="close" onclick="closeWindow('addLeafForm')">&times;</span>
-            <h2>Modal Header</h2>
+            <h2>Hello! :)</h2>
         </div>
         <div class="modal-body">
 
@@ -47,7 +46,7 @@
 
         </div>
         <div class="modal-footer">
-            <h3>Modal Footer</h3>
+            Hello! :)
         </div>
     </div>
 
@@ -56,9 +55,7 @@
 
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-
+    <h1 class="display-2">Zarządzanie Strukturą drzewiastą</h1>
 
     @{
         ShowTreeData(Model.Root);
@@ -72,58 +69,74 @@
 
             string id = node.Id.ToString();
             <div class="myListItem">
-                @Html.Label("Text: ", name);
-                <button class="btn btn-success" onclick="addNode(@id)">AddNode</button>
-                @Html.ActionLink("Delete", "DeleteNode", new { id = node.Id }, new { @class = "btn btn-success" })
-                <button class="btn btn-success" onclick="addLeaf(@id)">AddLeaf</button>
+                @Html.Label("Text: ", name)
+                <div class="fright">
+                    <button class="btn btn-success" onclick="addNode(@id)">AddNode</button>
+                    <button class="btn btn-success" onclick="addLeaf(@id)">AddLeaf</button>
+                    @if (node.Expanded)
+                    {
+                        @Html.ActionLink("Colapse", "ChangeExpandeNode", new { id = node.Id }, new { @class = "btn btn-success" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Expand", "ChangeExpandeNode", new { id = node.Id }, new { @class = "btn btn-success" })
+                    }
+                    @Html.ActionLink("Delete", "DeleteNode", new { id = node.Id }, new { @class = "btn btn-success" })
+                </div>
+
             </div>
-            <ul>
-                @foreach (var nodeItem in node.Nodes)
-                {
-                    <li>
-                        @{
-                            ShowTreeData(nodeItem);
-                        }
-                    </li>
-                }
-            </ul>
+            @if (node.Expanded)
+            {
+                <ul id="textnone">
+                    @foreach (var nodeItem in node.Nodes)
+                    {
+                        <li>
+                            @{
+                                ShowTreeData(nodeItem);
+                            }
+                        </li>
+                    }
+                </ul>
 
-            <ul>
-                @foreach (var leafeItem in node.Leafes)
-                {
-                    string idLeafe = leafeItem.Id.ToString();
+                <ul id="textnone">
+                    @foreach (var leafeItem in node.Leafes)
+                    {
+                        string idLeafe = leafeItem.Id.ToString();
 
-                    <li class="LeafView">
-                        @leafeItem.Name
-                        @Html.ActionLink("Delete", "DeleteLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
-                    </li>
+                        <li class="LeafView">
+                            @leafeItem.Name
+                            <div class="fright">
+                                @Html.ActionLink("Delete", "DeleteLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
+                            </div>
+                        </li>
 
-                }
-            </ul>
-
+                    }
+                </ul>
+            }
         }
     }
-
-
 
 
     <script>
 
 
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
+        window.onclick = function (event)
+        {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
 
-        function closeWindow(formId) {
+        function closeWindow(formId)
+        {
             var modalForm = document.getElementById(formId);
             modalForm.style.display = "none";
 
         }
 
-        function addNode(id) {
+        function addNode(id)
+        {
             let hiddenId = document.getElementById("SelectedId");
             hiddenId.value = id;
 
@@ -132,7 +145,8 @@
         }
 
 
-        function addLeaf(id) {
+        function addLeaf(id)
+        {
             let hiddenId = document.getElementById("SelectedParentFeafId");
             hiddenId.value = id;
 
@@ -141,14 +155,6 @@
 
         }
 
-
-
-
-
-
     </script>
-
-
-
 
 </div>

@@ -84,6 +84,7 @@
 }
 
 .myListItem {
+    text-decoration: none;
     padding-left: 25px;
     text-align: left;
     font-size: 20px;
@@ -91,19 +92,31 @@
     width: 800px;
     height: 50px;
     margin: 10px;
-    background-color: #bc5e00;
+    background: linear-gradient(45deg, #ef752e, #3fe9ef, #ef752e);
     padding-top: 5px;
-    border-radius: 10px;
+    padding-right: 12px;
+    border-radius: 15px;
 }
 
 .LeafView {
+    padding-right: 12px;
+    text-decoration: none;
+    padding-left: 25px;
     text-align: left;
     font-size: 20px;
-    color: #fff;
+    color: rgb(0,0,0);
     width: 800px;
     height: 50px;
     margin: 10px;
-    background-color: #6ee3a0;
+    background: linear-gradient(45deg, #f3d9a4, #93e2c2, #f3d9a4);
     padding-top: 5px;
     border-radius: 15px;
+}
+
+#textnone {
+    list-style-type: none;
+}
+
+.fright{
+    float: right;
 }

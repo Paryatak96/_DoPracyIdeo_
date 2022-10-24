@@ -4,6 +4,7 @@ using System.Text;
 
 namespace TreeManagementFolderMVC.Application.ViewModels.Node
 {
+    [Serializable]
     public class NodeVM
     {
         public NodeVM()
@@ -17,6 +18,8 @@ namespace TreeManagementFolderMVC.Application.ViewModels.Node
         public NodeVM Parent { get; set; }
         public ICollection<NodeVM> Nodes { get; set; }
         public ICollection<LeafVM> Leafes { get; set; }
-        
+
+        public bool Expanded { get; set; }
+
     }
 }

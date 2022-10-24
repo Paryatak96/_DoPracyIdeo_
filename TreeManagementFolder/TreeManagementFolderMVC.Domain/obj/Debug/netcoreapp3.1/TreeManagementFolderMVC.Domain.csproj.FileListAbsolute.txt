@@ -7,3 +7,4 @@ C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Dom
 C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\bin\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.pdb
 C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.dll
 C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.pdb
+C:\Users\Sebastian\Source\Repos\TreeManagementFolder\TreeManagementFolderMVC.Domain\obj\Debug\netcoreapp3.1\TreeManagementFolderMVC.Domain.csproj.AssemblyReference.cache

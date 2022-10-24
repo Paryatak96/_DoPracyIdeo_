@@ -14,5 +14,7 @@ namespace TreeManagementFolderMVC.Application.ViewModels.Node
 
         public int SelectedLeafIdToDelete { get; set; }
         public int SelectedNodeIdToDelete { get; set; }
+
+        
     }
 }
