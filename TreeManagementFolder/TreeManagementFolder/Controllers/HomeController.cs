@@ -25,9 +25,9 @@ namespace TreeManagementFolder.Controllers
 
         public IActionResult Index()
         {
+            
             TreeVM tree = new TreeVM();
             tree.Root = _nodeService.GetRoot();
-            Session["test1"] = 3;
             return View(tree);
         }
 
