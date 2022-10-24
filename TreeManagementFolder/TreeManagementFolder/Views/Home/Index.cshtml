@@ -41,6 +41,7 @@
             {
                 @Html.TextBoxFor(m => m.Name);
                 @Html.HiddenFor(m => m.SelectedParentFeafId);
+                @Html.HiddenFor(m => m.Root);
                 <input type="submit" value="Add" class="btn btn-primary" />
             }
 
@@ -51,12 +52,6 @@
     </div>
 
 </div>
-
-
-
-
-
-
 
 
 
@@ -76,11 +71,12 @@
             var name = node.Name;
 
             string id = node.Id.ToString();
-            @Html.Label("Text: ", name);
-            <button onclick="addNode(@id)">AddNode</button>
-            @Html.ActionLink("Delete", "DeleteNode", new { id = node.Id }, new { @class = "btn btn-success" })
-            <button onclick="addLeaf(@id)">AddLeaf</button>
-            <br />
+            <div class="myListItem">
+                @Html.Label("Text: ", name);
+                <button class="btn btn-success" onclick="addNode(@id)">AddNode</button>
+                @Html.ActionLink("Delete", "DeleteNode", new { id = node.Id }, new { @class = "btn btn-success" })
+                <button class="btn btn-success" onclick="addLeaf(@id)">AddLeaf</button>
+            </div>
             <ul>
                 @foreach (var nodeItem in node.Nodes)
                 {
@@ -91,16 +87,20 @@
                     </li>
                 }
             </ul>
+
             <ul>
                 @foreach (var leafeItem in node.Leafes)
                 {
                     string idLeafe = leafeItem.Id.ToString();
-                    <li>
+
+                    <li class="LeafView">
                         @leafeItem.Name
                         @Html.ActionLink("Delete", "DeleteLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
                     </li>
+
                 }
             </ul>
+
         }
     }
 
@@ -142,7 +142,7 @@
         }
 
 
-      
+
 
 
 

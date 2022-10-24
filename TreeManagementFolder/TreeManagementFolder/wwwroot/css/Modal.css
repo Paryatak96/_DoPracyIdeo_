@@ -82,3 +82,28 @@
     background-color: #5cb85c;
     color: white;
 }
+
+.myListItem {
+    padding-left: 25px;
+    text-align: left;
+    font-size: 20px;
+    color: #fff;
+    width: 800px;
+    height: 50px;
+    margin: 10px;
+    background-color: #bc5e00;
+    padding-top: 5px;
+    border-radius: 10px;
+}
+
+.LeafView {
+    text-align: left;
+    font-size: 20px;
+    color: #fff;
+    width: 800px;
+    height: 50px;
+    margin: 10px;
+    background-color: #6ee3a0;
+    padding-top: 5px;
+    border-radius: 15px;
+}
