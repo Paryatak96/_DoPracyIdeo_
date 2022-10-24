@@ -41,19 +41,17 @@ Instrukcja do uruchomienia aplikacji:
 
 5. W linijce 3 zatytułowanej jako "DefaultConnection" po dwukropku należy wkleić wcześniej skopiowaną linijkę "CONNECTION STRING" w cudzysłów.
 
-6.
+6. Po wklejeniu linijki "CONNECTION STRING" należy w programie Visual Studio na samej górze wybrać zakładkę "Tools" zjechać do "NuGet Package Manager" i wybrać "Package Manager Console"
 
-7. Po wklejeniu linijki "CONNECTION STRING" należy w programie Visual Studio na samej górze wybrać zakładkę "Tools" zjechać do "NuGet Package Manager" i wybrać "Package Manager Console"
+7. Domyślnie na samym powinna otworzyć się konsola "Package Manager Console" 
 
-8. Domyślnie na samym powinna otworzyć się konsola "Package Manager Console" 
+8. Pod nazwą konsoli mamy linię "Package Source" która powinna być ustawiona na "All" oraz "Default Project" który musimy ustawić na "TreeManagementFolderMVC.Infrastructure"
 
-9. Pod nazwą konsoli mamy linię "Package Source" która powinna być ustawiona na "All" oraz "Default Project" który musimy ustawić na "TreeManagementFolderMVC.Infrastructure"
+9. Wpisujemy komendę: add-migration Initial
 
-10. Wpisujemy komendę: add-migration Initial
+10. Po otrzymaniu informacji "Build succeeded" należy wpisać kolejną komendę: update-database
 
-11. Po otrzymaniu informacji "Build succeeded" należy wpisać kolejną komendę: update-database
-
-12. Po otrzymaniu informacji "Done" można uruchomić program klikając przycisk "IIS Express" :)
+11. Po otrzymaniu informacji "Done" można uruchomić program klikając przycisk "IIS Express" :)
 
 
  
