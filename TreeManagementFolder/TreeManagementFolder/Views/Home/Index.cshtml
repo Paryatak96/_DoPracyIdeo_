@@ -75,13 +75,14 @@
                     <button class="btn btn-success" onclick="addLeaf(@id)">AddLeaf</button>
                     @if (node.Expanded)
                     {
-                        @Html.ActionLink("Colapse", "ChangeExpandeNode", new { id = node.Id }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Collapse", "ChangeExpandeNode", new { id = node.Id }, new { @class = "btn btn-success" })
                     }
                     else
                     {
                         @Html.ActionLink("Expand", "ChangeExpandeNode", new { id = node.Id }, new { @class = "btn btn-success" })
                     }
                     @Html.ActionLink("Delete", "DeleteNode", new { id = node.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Move", "MoveNode", new { id = node.Id }, new { @class = "btn btn-success" })
                 </div>
 
             </div>
@@ -107,6 +108,7 @@
                             @leafeItem.Name
                             <div class="fright">
                                 @Html.ActionLink("Delete", "DeleteLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
+                                @Html.ActionLink("Move", "MoveLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
                             </div>
                         </li>
 

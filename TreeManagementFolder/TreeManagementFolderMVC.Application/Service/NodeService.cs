@@ -54,12 +54,10 @@ namespace TreeManagementFolderMVC.Application.Service
                 nodeVM.Leafes.Add(ChangeToVM(leaf, nodeVM));
             }
 
-
             foreach (Node subNode in _nodeRepo.GetAllNodesForParentId(node.Id))
             {
                 nodeVM.Nodes.Add(ChangeToVM(subNode, nodeVM));
             }
-
 
             return nodeVM;
         }
@@ -80,6 +78,35 @@ namespace TreeManagementFolderMVC.Application.Service
         public void DeleteLeaf(int id)
         {
             _nodeRepo.DeleteLeaf(id);
+        }
+
+
+        public void MoveNode(int targetNodeId, int movedId)
+        {
+            Node moved = _nodeRepo.GetNodeById(movedId);
+            moved.ParentId = targetNodeId;
+            _nodeRepo.UpdateNode(moved);
+        }
+
+        public void MoveLeaf(int targetNodeId, int movedId)
+        {
+            Leaf moved = _nodeRepo.GetLeafById(movedId);
+            moved.ParentId = targetNodeId;
+            _nodeRepo.UpdateLeaf(moved);
+        }
+
+        public void EditNodeName(int id, string name)
+        {
+            Node node = _nodeRepo.GetNodeById(id);
+            node.Name = name;
+            _nodeRepo.UpdateNode(node);
+        }
+
+        public void EditLeafName(int id, string name)
+        {
+            Leaf leaf = _nodeRepo.GetLeafById(id);
+            leaf.Name = name;
+            _nodeRepo.UpdateLeaf(leaf);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace TreeManagementFolderMVC.Infrastructure.Repositories
             _context.SaveChanges();
             return node.Id;
         }
+
         public int AddLeaf(Leaf leaf)
         {
             _context.Leafes.Add(leaf);
@@ -29,7 +30,6 @@ namespace TreeManagementFolderMVC.Infrastructure.Repositories
             return leaf.Id;
         }
 
-       
         public void CreateRootIfNotExist()
         {
             if(_context.Nodes.Count()==0)
@@ -43,11 +43,11 @@ namespace TreeManagementFolderMVC.Infrastructure.Repositories
             }
         }
 
-
         public IQueryable<Node> GetAllNodesForList()
         {
             throw new NotImplementedException();
         }
+
         public Node GetRoot()
         {
             return _context.Nodes.Where(node => node.ParentId == null).First<Node>();
@@ -57,10 +57,29 @@ namespace TreeManagementFolderMVC.Infrastructure.Repositories
         {
             return _context.Nodes.Find(id);
         }
+
+        public Leaf GetLeafById(int id)
+        {
+            return _context.Leafes.Find(id);
+        }
+
+        public void UpdateNode(Node node)
+        {
+            _context.Nodes.Update(node);
+            _context.SaveChanges();
+        }
+
+        public void UpdateLeaf(Leaf leaf)
+        {
+            _context.Leafes.Update(leaf);
+            _context.SaveChanges();
+        }
+
         public List<Node> GetAllNodesForParentId(int parentId)
         {
             return _context.Nodes.Where(node => node.ParentId == parentId).ToList<Node>();
         }
+
         public List<Leaf> GetAllLeafsForParentId(int parentId)
         {
             return _context.Leafes.Where(leaf => leaf.ParentId == parentId).ToList<Leaf>();
@@ -88,18 +107,6 @@ namespace TreeManagementFolderMVC.Infrastructure.Repositories
             }
         }
 
-      /*  public void DeleteNode(int id)
-        {
-            var node = _context.Nodes.Find(id);
-
-            if (node != null)
-            {
-                _context.Nodes.Remove(node);
-                _context.SaveChanges();
-            }
-        }*/
-
-
         public void DeleteLeaf(int id)
         {
             var leaf = _context.Leafes.Find(id);
@@ -109,7 +116,5 @@ namespace TreeManagementFolderMVC.Infrastructure.Repositories
                 _context.SaveChanges();
             }
         }
-
-
     }
 }

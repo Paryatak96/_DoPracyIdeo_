@@ -4,7 +4,6 @@ using System.Text;
 
 namespace TreeManagementFolderMVC.Application.ViewModels.Node
 {
-
     [Serializable]
     public class LeafVM
     {

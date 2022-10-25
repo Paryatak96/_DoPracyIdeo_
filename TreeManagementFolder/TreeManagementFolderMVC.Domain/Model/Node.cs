@@ -9,9 +9,8 @@ namespace TreeManagementFolderMVC.Domain.Model
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        //public int? ParentId { get; set; }
         public int? ParentId { get; set; }
-        
+
         [ForeignKey("ParentId")]
         public ICollection<Node> Nodes { get; set; }
         [ForeignKey("ParentId")]

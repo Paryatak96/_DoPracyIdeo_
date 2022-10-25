@@ -1,0 +1,97 @@
+﻿@model TreeManagementFolderMVC.Application.ViewModels.Node.TreeItemMoveVM
+@{
+    ViewData["Title"] = "MoveItem";
+}
+
+<h1>MoveItem</h1>
+
+<div class="text-center">
+    <h1 class="display-2">Zarządzanie Strukturą drzewiastą</h1>
+
+    @{
+        ShowTreeData(Model.Root);
+    }
+
+    @functions
+    {
+        public void ShowTreeData(TreeManagementFolderMVC.Application.ViewModels.Node.NodeVM node)
+        {
+            var name = node.Name;
+
+            string id = node.Id.ToString();
+            <div class="myListItem">
+                @Html.Label("Text: ", name)
+                <div class="fright">
+                    @if (Model.IsNodeMoved && node.Id == Model.SelectedItemId)
+                    {
+                        <p>(this is moved)</p>
+                    }
+                    else if (Model.IsNodeMoved)
+                    {
+                        @Html.ActionLink("Put node here", "MoveNodeFinish", new { targetId = node.Id, selectedId = Model.SelectedItemId }, new { @class = "btn btn-success" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Put leaf here", "MoveLeafFinish", new { targetId = node.Id, selectedId = Model.SelectedItemId }, new { @class = "btn btn-success" })
+                    }
+
+                </div>
+
+            </div>
+            @if (node.Expanded)
+            {
+                <ul id="textnone">
+                    @foreach (var nodeItem in node.Nodes)
+                    {
+                        <li>
+                            @{
+                                ShowTreeData(nodeItem);
+                            }
+                        </li>
+                    }
+                </ul>            }
+        }
+    }
+
+
+    <script>
+
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event)
+        {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function closeWindow(formId)
+        {
+            var modalForm = document.getElementById(formId);
+            modalForm.style.display = "none";
+
+        }
+
+        function addNode(id)
+        {
+            let hiddenId = document.getElementById("SelectedId");
+            hiddenId.value = id;
+
+            var modalForm = document.getElementById("addNodeForm");
+            modalForm.style.display = "block";
+        }
+
+
+        function addLeaf(id)
+        {
+            let hiddenId = document.getElementById("SelectedParentFeafId");
+            hiddenId.value = id;
+
+            var modalForm = document.getElementById("addLeafForm");
+            modalForm.style.display = "block";
+
+        }
+
+    </script>
+
+</div>

@@ -11,9 +11,10 @@ namespace TreeManagementFolderMVC.Application.Interface
         int AddLeaf(NewItem leaf);
         void DeleteNode(int id);
         void DeleteLeaf(int id);
-
-
         NodeVM GetRoot();
-
+        void MoveNode(int targetNodeId, int movedId);
+        void MoveLeaf(int targetNodeId, int movedId);
+        void EditNodeName(int id, string name);
+        void EditLeafName(int id, string name);
     }
 }
