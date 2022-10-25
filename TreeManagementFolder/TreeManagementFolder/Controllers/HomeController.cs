@@ -33,7 +33,17 @@ namespace TreeManagementFolder.Controllers
 
             TreeVM tree = new TreeVM();
             tree.Root = session.Root;
+           
             return View(tree);
+        }
+
+        [HttpGet]
+        public IActionResult ResetTree()
+        {
+            _nodeService.ResetTree();
+            SessionManager session = new SessionManager(HttpContext.Session, _nodeService);
+            session.Root = _nodeService.GetRoot();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -54,6 +64,7 @@ namespace TreeManagementFolder.Controllers
             NodeVM parent = FindNodeOfId(root, tree.SelectedId);
             subNode.Parent = parent;
             parent.Nodes.Add(subNode);
+            _nodeService.SortNodes(parent);
 
             session.Root = root;
 
@@ -65,7 +76,7 @@ namespace TreeManagementFolder.Controllers
         {
 
             NewItem newLeaf = new NewItem();
-            newLeaf.ParentId = tree.SelectedParentFeafId;
+            newLeaf.ParentId = tree.SelectedId;
             newLeaf.Name = tree.Name;
 
             LeafVM leaf = new LeafVM();
@@ -75,10 +86,10 @@ namespace TreeManagementFolder.Controllers
 
             SessionManager session = new SessionManager(HttpContext.Session, _nodeService);
             NodeVM root = session.Root;
-            NodeVM parent = FindNodeOfId(root, tree.SelectedParentFeafId);
+            NodeVM parent = FindNodeOfId(root, tree.SelectedId);
             leaf.Parent = parent;
             parent.Leafes.Add(leaf);
-
+            _nodeService.SortLeafes(parent);
             session.Root = root;
 
             return RedirectToAction("Index");
@@ -140,7 +151,7 @@ namespace TreeManagementFolder.Controllers
             selectedNode.Parent = targetNode;
             oldParentNode.Nodes.Remove(selectedNode);
             targetNode.Nodes.Add(selectedNode);
-
+            _nodeService.SortNodes(targetNode);
             session.Root = root;
 
             return RedirectToAction("Index");
@@ -175,7 +186,7 @@ namespace TreeManagementFolder.Controllers
             selectedNode.Parent = targetNode;
             oldParentNode.Leafes.Remove(selectedNode);
             targetNode.Leafes.Add(selectedNode);
-
+            _nodeService.SortLeafes(targetNode);
             session.Root = root;
 
             return RedirectToAction("Index");
@@ -195,16 +206,61 @@ namespace TreeManagementFolder.Controllers
         }
 
         [HttpPost]
-        IActionResult EditNodeName(TreeVM tree)
+        public IActionResult EditNodeName(TreeVM tree)
         {
+            _nodeService.EditNodeName(tree.SelectedId,tree.Name);
+            
+            SessionManager session = new SessionManager(HttpContext.Session, _nodeService);
+            NodeVM root = session.Root;
+            NodeVM node = FindNodeOfId(root, tree.SelectedId);
+            node.Name = tree.Name;
+            if(node.Parent!=null)
+            {
+                _nodeService.SortNodes(node.Parent);
+            }
+            session.Root = root;
+
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        IActionResult EditLeafName(TreeVM tree)
+        public IActionResult EditLeafName(TreeVM tree)
         {
+            _nodeService.EditLeafName(tree.SelectedId, tree.Name);
+
+            SessionManager session = new SessionManager(HttpContext.Session, _nodeService);
+            NodeVM root = session.Root;
+            NodeVM parentNode = FindNodeWithLeafOfId(root, tree.SelectedId);
+            LeafVM leaf = parentNode.Leafes.First(leaf => leaf.Id == tree.SelectedId);
+            leaf.Name = tree.Name;
+            _nodeService.SortLeafes(parentNode);
+            session.Root = root;
+
             return RedirectToAction("Index");
         }
+        
+        [HttpGet]
+        public IActionResult Sort(int id)
+        {
+            SessionManager session = new SessionManager(HttpContext.Session, _nodeService);
+            NodeVM root = session.Root;
+            NodeVM node = FindNodeOfId(root, id);
+            if(node.Sort == Sorting.ascending)
+            {
+                node.Sort = Sorting.descending;
+            }
+            else
+            {
+                node.Sort = Sorting.ascending;
+            }
+            
+            _nodeService.SortNodes(node);
+            _nodeService.SortLeafes(node);
+
+            session.Root = root;
+            return RedirectToAction("Index");
+        }
+
 
 
         private NodeVM FindNodeOfId(NodeVM root, int id)

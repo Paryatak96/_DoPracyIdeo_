@@ -7,23 +7,18 @@
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span class="close" onclick="closeWindow('addNodeForm')">&times;</span>   
+            <span class="close" onclick="closeWindow('addNodeForm')">&times;</span>
+            <h2>Add new node</h2>
         </div>
         <div class="modal-body">
-
             @using (Html.BeginForm("AddNode", "Home", FormMethod.Post))
             {
                 @Html.TextBoxFor(m => m.Name);
                 @Html.HiddenFor(m => m.SelectedId);
                 <input type="submit" value="Add" class="btn btn-primary" />
             }
-
-        </div>
-        <div class="modal-footer">
-            Hello! :)
         </div>
     </div>
-
 </div>
 
 
@@ -32,30 +27,65 @@
     <div class="modal-content">
         <div class="modal-header">
             <span class="close" onclick="closeWindow('addLeafForm')">&times;</span>
-            <h2>Hello! :)</h2>
+            <h2>Add new leaf</h2>
         </div>
         <div class="modal-body">
-
             @using (Html.BeginForm("AddLeaf", "Home", FormMethod.Post))
             {
                 @Html.TextBoxFor(m => m.Name);
-                @Html.HiddenFor(m => m.SelectedParentFeafId);
+                @Html.HiddenFor(m => m.SelectedId);
                 @Html.HiddenFor(m => m.Root);
                 <input type="submit" value="Add" class="btn btn-primary" />
             }
-
-        </div>
-        <div class="modal-footer">
-            Hello! :)
         </div>
     </div>
-
 </div>
 
 
 
+<div id="editNodeForm" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeWindow('editNodeForm')">&times;</span>
+            <h2>Edit node</h2>
+        </div>
+        <div class="modal-body">
+            @using (Html.BeginForm("EditNodeName", "Home", FormMethod.Post))
+            {
+                @Html.TextBoxFor(m => m.Name);
+                @Html.HiddenFor(m => m.SelectedId);
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            }
+        </div>
+    </div>
+</div>
+
+
+<div id="editLeafForm" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" onclick="closeWindow('editLeafForm')">&times;</span>
+            <h2>Edit leaf</h2>
+        </div>
+        <div class="modal-body">
+            @using (Html.BeginForm("EditLeafName", "Home", FormMethod.Post))
+            {
+                @Html.TextBoxFor(m => m.Name);
+                @Html.HiddenFor(m => m.SelectedId);
+                @Html.HiddenFor(m => m.Root);
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            }
+        </div>
+    </div>
+</div>
+
+
 <div class="text-center">
     <h1 class="display-2">Zarządzanie Strukturą drzewiastą</h1>
+
+    @Html.ActionLink("Create example tree", "ResetTree", new { @class = "btn btn-success" })
 
     @{
         ShowTreeData(Model.Root);
@@ -73,6 +103,7 @@
                 <div class="fright">
                     <button class="btn btn-success" onclick="addNode(@id)">AddNode</button>
                     <button class="btn btn-success" onclick="addLeaf(@id)">AddLeaf</button>
+                    <button class="btn btn-success" onclick="editNode(@id, '@node.Name')">Edit</button>
                     @if (node.Expanded)
                     {
                         @Html.ActionLink("Collapse", "ChangeExpandeNode", new { id = node.Id }, new { @class = "btn btn-success" })
@@ -81,13 +112,42 @@
                     {
                         @Html.ActionLink("Expand", "ChangeExpandeNode", new { id = node.Id }, new { @class = "btn btn-success" })
                     }
-                    @Html.ActionLink("Delete", "DeleteNode", new { id = node.Id }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Move", "MoveNode", new { id = node.Id }, new { @class = "btn btn-success" })
+                    @if (node.Parent != null)
+                    {
+                        @Html.ActionLink("Delete", "DeleteNode", new { id = node.Id }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Move", "MoveNode", new { id = node.Id }, new { @class = "btn btn-success" })
+                    }
+
+                    @if (node.Sort == TreeManagementFolderMVC.Application.ViewModels.Node.Sorting.ascending)
+                    {
+                        @Html.ActionLink("Sort desc", "Sort", new { id = node.Id }, new { @class = "btn btn-success" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Sort asc", "Sort", new { id = node.Id }, new { @class = "btn btn-success" })
+                    }
+
                 </div>
 
             </div>
             @if (node.Expanded)
             {
+                <ul id="textnone">
+                    @foreach (var leafeItem in node.Leafes)
+                    {
+                        string idLeafe = leafeItem.Id.ToString();
+
+                        <li class="LeafView">
+                            @leafeItem.Name
+                            <div class="fright">
+                                <button class="btn btn-success" onclick="editLeaf(@leafeItem.Id, '@leafeItem.Name')">Edit</button>
+                                @Html.ActionLink("Delete", "DeleteLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
+                                @Html.ActionLink("Move", "MoveLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
+                            </div>
+                        </li>
+
+                    }
+                </ul>
                 <ul id="textnone">
                     @foreach (var nodeItem in node.Nodes)
                     {
@@ -99,21 +159,7 @@
                     }
                 </ul>
 
-                <ul id="textnone">
-                    @foreach (var leafeItem in node.Leafes)
-                    {
-                        string idLeafe = leafeItem.Id.ToString();
 
-                        <li class="LeafView">
-                            @leafeItem.Name
-                            <div class="fright">
-                                @Html.ActionLink("Delete", "DeleteLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
-                                @Html.ActionLink("Move", "MoveLeaf", new { id = leafeItem.Id }, new { @class = "btn btn-success" })
-                            </div>
-                        </li>
-
-                    }
-                </ul>
             }
         }
     }
@@ -123,36 +169,44 @@
 
 
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event)
-        {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
 
-        function closeWindow(formId)
-        {
+        function closeWindow(formId) {
             var modalForm = document.getElementById(formId);
             modalForm.style.display = "none";
 
         }
 
-        function addNode(id)
-        {
-            let hiddenId = document.getElementById("SelectedId");
-            hiddenId.value = id;
+        function addNode(id) {
+            $("#addNodeForm input[name=SelectedId]").val(id);
 
             var modalForm = document.getElementById("addNodeForm");
             modalForm.style.display = "block";
         }
 
-
-        function addLeaf(id)
-        {
-            let hiddenId = document.getElementById("SelectedParentFeafId");
-            hiddenId.value = id;
+        function addLeaf(id) {
+            $("#addLeafForm input[name=SelectedId]").val(id);
 
             var modalForm = document.getElementById("addLeafForm");
+            modalForm.style.display = "block";
+
+        }
+
+        function editNode(id, name) {
+            $("#editNodeForm input[name=SelectedId]").val(id);
+            $("#editNodeForm input[name=Name]").val(name);
+            var modalForm = document.getElementById("editNodeForm");
+            modalForm.style.display = "block";
+
+        }
+        function editLeaf(id, name) {
+            $("#editLeafForm input[name=SelectedId]").val(id);
+            $("#editLeafForm input[name=Name]").val(name);
+            var modalForm = document.getElementById("editLeafForm");
             modalForm.style.display = "block";
 
         }

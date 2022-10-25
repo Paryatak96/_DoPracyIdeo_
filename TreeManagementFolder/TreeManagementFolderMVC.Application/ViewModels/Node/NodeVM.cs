@@ -16,8 +16,12 @@ namespace TreeManagementFolderMVC.Application.ViewModels.Node
         public int Id { get; set; }
         public string Name { get; set; }
         public NodeVM Parent { get; set; }
-        public ICollection<NodeVM> Nodes { get; set; }
-        public ICollection<LeafVM> Leafes { get; set; }
+        public List<NodeVM> Nodes { get; set; }
+        public List<LeafVM> Leafes { get; set; }
         public bool Expanded { get; set; }
+
+        public Sorting Sort { get; set; }
+
+
     }
 }

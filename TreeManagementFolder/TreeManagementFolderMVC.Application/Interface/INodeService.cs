@@ -16,5 +16,9 @@ namespace TreeManagementFolderMVC.Application.Interface
         void MoveLeaf(int targetNodeId, int movedId);
         void EditNodeName(int id, string name);
         void EditLeafName(int id, string name);
+        void SortNodes(NodeVM parentNode);
+        void SortLeafes(NodeVM parentNode);
+
+        void ResetTree();
     }
 }
